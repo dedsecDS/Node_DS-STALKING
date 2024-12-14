@@ -1,0 +1,22 @@
+{
+    "name": "ds-stalking",
+    "version": "1.0.0",
+    "description": "DS-STALKING - A project by DEDSEC (DS)",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon index.js"
+    },
+    "author": "DEDSEC (DS)",
+    "license": "MIT",
+    "dependencies": {
+      "ejs": "^3.1.9",
+      "express": "^4.18.2",
+      "figlet": "^1.6.0",
+      "os": "^0.1.2",
+      "portfinder": "^1.0.30"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.22"
+    }
+  }

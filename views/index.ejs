@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demander un lien</title>
+</head>
+<body>
+    <h1>Demander un lien à envoyer à la victime</h1>
+    <form action="/generate_victim_link" method="POST">
+        <label for="input_link">Entrez le lien initial :</label>
+        <input type="text" id="input_link" name="input_link" required>
+        <button type="submit">Générer le lien pour la victime</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance du flux</title>
+</head>
+<body>
+    <h1>Surveillance du flux vidéo</h1>
+    <video id="video" width="640" height="480" controls autoplay></video>
+
+    <script>
+        const videoElement = document.getElementById('video');
+        const streamUrl = "<%= streamUrl %>/camera"; // Utiliser le lien généré par Node.js pour le flux vidéo
+
+        fetch(streamUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                const objectUrl = URL.createObjectURL(blob);
+                videoElement.src = objectUrl;
+            })
+            .catch(err => console.error('Erreur de flux vidéo :', err));
+    </script>
+</body>
+</html>
